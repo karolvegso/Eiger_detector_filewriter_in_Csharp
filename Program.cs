@@ -67,9 +67,9 @@ namespace Eiger_filewriter_Console_app_01
             response = await eiger_client.PutAsync("http://10.10.10.31/detector/api/1.8.0/config/frame_time", content_frame_time);
             Console.WriteLine(response.StatusCode);
 
-            //  query energy threshold
-            Console.WriteLine("Define energy threshold: ");
-            // read input for energy threshold
+            //  query photon energy
+            Console.WriteLine("Define photon energy: ");
+            // read input for photon energy
             string energy_str = Console.ReadLine();
             // convert string to integer
             float energy = float.Parse(energy_str);
@@ -147,10 +147,6 @@ namespace Eiger_filewriter_Console_app_01
             Console.WriteLine(response.StatusCode);
             Console.WriteLine("Acquition started");
             Console.WriteLine("Checking buffer?");
-
-            float wait_delay = (float)ni * frame_time * 1000f + 1000f;
-            int wait_time = (int)wait_delay;
-            Thread.Sleep(wait_time);
         }
     }
 }
